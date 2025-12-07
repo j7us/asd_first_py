@@ -19,3 +19,4 @@ def list_sum(list1: LinkedList, list2: LinkedList) -> LinkedList:
         node_second = node_second.next
 
     return result_list
+

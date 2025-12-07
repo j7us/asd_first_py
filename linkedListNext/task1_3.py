@@ -209,3 +209,4 @@ class LinkedListTest(unittest.TestCase):
         result_list = list_sum(list_first, list_second)
 
         self.assertEqual(result_list.len(), 0)
+
