@@ -55,19 +55,22 @@ class LinkedList:
                 self.length -= 1
                 delete_continue = all
 
-            prev = node if prev is not None and prev.next == node else prev
+            prev = node if (prev is None and self.head == node) or (prev is not None and prev.next == node) else prev
             node = node.next
 
     def __remove_node(self, node, prev):
         node_next = node.next
 
+        if self.head == node:
+            self.head = node_next
+
         if self.tail == node:
-            self.tail = node_next
+            self.tail = prev
 
         if prev is None:
-            self.head = node_next
-        else:
-            prev.next = node_next
+            return
+
+        prev.next = node_next
 
     def clean(self):
         self.head = None

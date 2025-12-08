@@ -15,7 +15,10 @@ class LinkedListTest(unittest.TestCase):
         list.delete(1)
         node = list.find(1)
 
+        self.assertIsNone(list.head)
+        self.assertIsNone(list.tail)
         self.assertIsNone(node)
+
 
     def test_delete_all_nodes(self):
         list = self.linked_list
@@ -25,6 +28,9 @@ class LinkedListTest(unittest.TestCase):
         list.delete(1, True)
 
         node = list.find(1)
+
+        self.assertIsNone(list.head)
+        self.assertIsNone(list.tail)
         self.assertIsNone(node)
 
     def test_delete_node_and_check_new_head(self):
@@ -38,6 +44,7 @@ class LinkedListTest(unittest.TestCase):
         deleting_node = list.find(1)
 
         self.assertEqual(list.head.value, 2)
+        self.assertEqual(list.tail.value, 2)
         self.assertIsNone(deleting_node)
         self.assertEqual(second_node.value, 2)
 
@@ -48,24 +55,23 @@ class LinkedListTest(unittest.TestCase):
         list.add_in_tail(Node(3))
 
         list.delete(1)
+        list.delete(3)
 
-        head_node = list.find(2)
-        second_node = list.find(3)
-        deleting_node = list.find(1)
+        self.assertEqual(list.head.value, 2)
+        self.assertEqual(list.tail.value, 2)
+        self.assertEqual(list.len(), 1)
 
-
-        self.assertIsNone(deleting_node)
-        self.assertEqual(head_node.value, 2)
-        self.assertEqual(second_node.value, 3)
 
     def test_delete_none(self):
         list = self.linked_list
         list.add_in_tail(Node(1))
+        list.add_in_tail(Node(2))
+        list.add_in_tail(Node(3))
 
         list.delete(5)
 
-        node = list.find(1)
-        self.assertEqual(node.value, 1)
+        self.assertEqual(list.head.value, 1)
+        self.assertEqual(list.tail.value, 3)
 
     def test_clean(self):
         list = self.linked_list
@@ -134,6 +140,7 @@ class LinkedListTest(unittest.TestCase):
         new_head = list.find(4)
         print(list.head.value)
         self.assertEqual(list.head, node_to_insert)
+        self.assertEqual(list.tail.value, 3)
         self.assertEqual(new_head.next, first_node)
 
     def test_insert_after(self):
