@@ -118,3 +118,4 @@ def add_in_list(link: LinkedList2, node):
     while cur is not None:
         link.add_in_tail(Node(cur.value))
         cur = cur.next
+

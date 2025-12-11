@@ -440,3 +440,4 @@ class LinkedList2Test(unittest.TestCase):
         self.assertEqual(count, 7)
         self.assertEqual(result.head.value, 2)
         self.assertEqual(result.tail.value, 2123)
+
