@@ -89,15 +89,16 @@ class DynArrayTest(unittest.TestCase):
     def test_delete_first(self):
         array = self.dyn_array
 
-        for i in range(10):
+        for i in range(7):
             array.append(i)
 
         array.delete(0)
 
-        res = array[0]
+        res = array[3]
 
-        self.assertEqual(res, 1)
-        self.assertEqual(len(array), 9)
+        self.assertEqual(res, 4)
+        self.assertIsNone(array.array[6])
+        self.assertEqual(len(array), 6)
         self.assertEqual(array.capacity, 16)
 
     def test_delete_last(self):

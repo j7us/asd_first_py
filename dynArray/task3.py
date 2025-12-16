@@ -62,11 +62,14 @@ class DynArray:
 
         self.array[i] = None
 
-        index = i + 1
+        if i != self.count - 1:
+            index = i + 1
 
-        while index < self.count:
-            self.array[index - 1] = self.array[index]
-            index += 1
+            while index < self.count:
+                self.array[index - 1] = self.array[index]
+                index += 1
+
+            self.array[self.count - 1] = None
 
         self.count -= 1
 
