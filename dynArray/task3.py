@@ -1,4 +1,5 @@
 import ctypes
+import math
 
 # Сложность удаления в худшем случае О(n) в лучшем O(1),
 # Тоже касается и insert
@@ -73,7 +74,7 @@ class DynArray:
 
         self.count -= 1
 
-        new_size = int(self.capacity / 1.5)
-        if self.count < (self.capacity / 2) and new_size >= 16:
+        if self.count < (self.capacity / 2):
+            new_size = max(int(self.capacity / 1.5), 16)
             self.resize(new_size)
 

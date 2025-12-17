@@ -104,19 +104,13 @@ class DynArrayTest(unittest.TestCase):
     def test_delete_last(self):
         array = self.dyn_array
 
-        for i in range(10):
+        for i in range(32):
             array.append(i)
 
-        array.delete(9)
+        for i in range(32):
+            array.delete(0)
 
-        no_element = False
-        try:
-            array[9]
-        except IndexError:
-            no_element = True
-
-        self.assertTrue(no_element)
-        self.assertEqual(len(array), 9)
+        self.assertEqual(len(array), 0)
         self.assertEqual(array.capacity, 16)
 
     def test_delete_index_err(self):
