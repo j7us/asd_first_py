@@ -150,3 +150,5 @@ class MultiDynArray:
         self.array = new_array
         self.capacity = new_capacity
 
+# Рефлексия задачи 1.8 первого задания: задача выполнена верно, решение соответствует представленному
+

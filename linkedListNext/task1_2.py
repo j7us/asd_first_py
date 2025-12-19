@@ -20,4 +20,3 @@ def list_sum(list1: LinkedList, list2: LinkedList) -> LinkedList:
 
     return result_list
 
-# Рефлексия задачи: задача выполнена верно
