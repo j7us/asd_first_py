@@ -351,7 +351,7 @@ class OrderedListWithSubListFunc:
 # Задание 7
 # задача 11
 # Нахождение самого популярного значения в списке
-# время O(log n)
+# время O(n)
 def find_popular_value(l):
     value_count = {}
     node = l.head
@@ -359,7 +359,7 @@ def find_popular_value(l):
 
     while node is not None:
         value_count[node.value] = value_count.get(node.value, 0) + 1
-        res = node.value if res is None or value_count[node.value] > res else res
+        res = node.value if res is None or value_count[node.value] > value_count[res] else res
         node = node.next
 
     return res
@@ -384,8 +384,7 @@ class OrderedListWithIndex:
         self.asc_insert_before = {True: lambda x: x >= 0, False: lambda x: x <= 0}
 
     def compare(self, v1, v2):
-        res = v1 - v2
-        return -1 if res < 0 else 1 if res > 0 else 0
+        return -1 if v1 < v2 else 1 if v1 > v2 else 0
 
     def add(self, value):
         self.count += 1
@@ -443,20 +442,9 @@ class OrderedListWithIndex:
         if self.count == 0:
             return None
 
-        node = self.head
-        asc = self.__ascending
+        ind = self.find_index(val)
 
-        while node is not None:
-            if node.value == val:
-                return node
-
-            comp_res = self.compare(node.value, val)
-
-            if self.asc_insert_before[asc](comp_res):
-                return None
-            node = node.next
-
-        return None
+        return self.array[ind] if ind >= 0 else None
 
     def delete(self, val):
         node = self.head
