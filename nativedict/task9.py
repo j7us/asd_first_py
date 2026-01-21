@@ -61,3 +61,4 @@ class NativeDictionary:
         ind = self.seek_slot(key, [key])
 
         return self.values[ind] if ind is not None else None
+

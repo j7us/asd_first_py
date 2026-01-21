@@ -101,5 +101,3 @@ class TestNativeDictionary(unittest.TestCase):
 
         self.assertEqual(val, 2)
 
-
-
