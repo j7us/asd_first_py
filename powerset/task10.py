@@ -54,9 +54,6 @@ class PowerSet:
         return result_set
 
     def issubset(self, set2: PowerSet) -> bool:
-        if set2.size() == 0:
-            return False
-
         for s in set2.slots:
             if s not in self.slots:
                 return False

@@ -199,7 +199,7 @@ class PowerSetTest(unittest.TestCase):
         self.assertTrue(union.get('d'))
 
     def test_issubset_both_empty(self):
-        self.assertFalse(self.powerset.issubset(PowerSet()))
+        self.assertTrue(self.powerset.issubset(PowerSet()))
 
     def test_issubset_second_empty(self):
         self.powerset.put('a')
@@ -208,7 +208,7 @@ class PowerSetTest(unittest.TestCase):
         self.powerset.put('a')
         self.powerset.put('d')
 
-        self.assertFalse(self.powerset.issubset(PowerSet()))
+        self.assertTrue(self.powerset.issubset(PowerSet()))
 
     def test_issubset_True(self):
         self.powerset.put('a')
