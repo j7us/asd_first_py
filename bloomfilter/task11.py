@@ -34,4 +34,5 @@ class BloomFilter:
 
         mask_for_hash_result = (1 << first_hash) | (1 << second_hash)
 
-        return (mask_for_hash_result & self.bit_array) != 0
+        return (mask_for_hash_result & self.bit_array) == mask_for_hash_result
+

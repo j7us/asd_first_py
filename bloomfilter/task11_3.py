@@ -53,3 +53,4 @@ class BloomFilterTest(unittest.TestCase):
         self.filter.add("b")
 
         self.assertFalse(self.filter.is_value("c"))
+
